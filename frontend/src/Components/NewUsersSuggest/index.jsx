@@ -16,10 +16,11 @@ function NewUsersSuggest() {
   }, [user.users]);
 
   return (
-    <div>
+    <div >
       <div className="col-md-2"></div>
       <div className="row card p-3 post">
         <h5>People you may know...</h5>
+        <div style={{ maxHeight: "500px", overflowY: "auto" }}>
         {user &&
           usersList.length &&
           [...usersList]
@@ -27,7 +28,7 @@ function NewUsersSuggest() {
             .slice(-5)
             .map((userItem) => {
               return (
-                <div className="col-12 mt-3 " key={userItem.id}>
+                <div className="col-12 mt-3 " key={userItem.id} >
                   <div className="card ">
                     <div className="card-body newusercard">
                       <div className="row">
@@ -58,6 +59,7 @@ function NewUsersSuggest() {
                 </div>
               );
             })}
+        </div>
       </div>
     </div>
   );

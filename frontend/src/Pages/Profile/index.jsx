@@ -10,7 +10,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 function Profile(props) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  
+
   // State for success message
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
@@ -48,11 +48,11 @@ function Profile(props) {
   const handleDelete = () => {
     if (window.confirm("Are you sure you want to delete your account?")) {
       dispatch(deleteUserById(user.userId));
-      
+
       props.closeModal();
     }
   };
-  
+
 
   const uploadImage = (e) => {
     const file = e.target.files[0];
@@ -82,19 +82,19 @@ function Profile(props) {
 
   return (
     // Background image come from google
-    <div style={{ backgroundImage: `url('https://wallpaperset.com/w/full/a/3/d/45475.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}> 
-      
-      <h1 className="text-center" style={{ fontFamily:"cursive", color:"white"}}>Update Profile</h1>
-      <hr style={{color:"white"}}/>
+    <div style={{ backgroundImage: `url('https://wallpaperset.com/w/full/a/3/d/45475.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
+
+      <h1 className="text-center" style={{ fontFamily: "cursive", color: "white" }}>Update Profile</h1>
+      <hr style={{ color: "white" }} />
       <center>
-        <div style={{height:"250px", width:"250px"}}></div>
+        <div style={{ height: "250px", width: "250px" }}></div>
       </center>
       <div className="container">
         <div className="row mt-5">
           <div className="col-md-6 offset-md-3">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label style={{color:"white"}} htmlFor="username" className="form-label">
+                <label style={{ color: "white" }} htmlFor="username" className="form-label">
                   Username
                 </label>
                 <input
@@ -107,7 +107,7 @@ function Profile(props) {
                 />
               </div>
               <div className="mb-3">
-                <label style={{color:"white"}} htmlFor="contactNumber" className="form-label">
+                <label style={{ color: "white" }} htmlFor="contactNumber" className="form-label">
                   Contact Number
                 </label>
                 <input
@@ -123,7 +123,7 @@ function Profile(props) {
                 />
               </div>
               <div className="mb-3">
-                <label style={{color:"white"}} htmlFor="email" className="form-label">
+                <label style={{ color: "white" }} htmlFor="email" className="form-label">
                   Email Address
                 </label>
                 <input
@@ -139,19 +139,19 @@ function Profile(props) {
                 />
               </div>
               <div className="mb-3">
-                <label style={{color:"white"}} htmlFor="country" className="form-label">
-                  Country
+                <label style={{ color: "white" }} htmlFor="country" className="form-label">
+                  Workout Status
                 </label>
-                <input
-                  type="text"
+                <textarea
                   className="form-control"
                   id="country"
-                  placeholder="Enter your country"
+                  placeholder="Enter your workout status"
                   value={country}
                   onChange={(e) => {
                     setCountry(e.target.value);
                   }}
                 />
+
               </div>
               <div className="mb-3">
                 {profileImage && (
@@ -161,7 +161,7 @@ function Profile(props) {
                     alt="Profile"
                   />
                 )}
-                <label style={{color:"white"}} htmlFor="country" className="form-label">
+                <label style={{ color: "white" }} htmlFor="country" className="form-label">
                   Profile Image
                 </label>
                 <input
@@ -173,8 +173,9 @@ function Profile(props) {
                     uploadImage(e);
                   }}
                 />
-                <button className="btn btn-danger w-100 mb-3" onClick={()=>{
-                  setProfileImage("https://i.discogs.com/57iTb7iRduipsfyksYodpaSpz_eEjtg52zPBhCwBPhI/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTY5Nzg2/ODEtMTU0OTgxMTIz/OC02NjMxLmpwZWc.jpeg")}}>Remove Profile picture</button>
+                <button className="btn btn-danger w-100 mb-3" onClick={() => {
+                  setProfileImage("https://i.discogs.com/57iTb7iRduipsfyksYodpaSpz_eEjtg52zPBhCwBPhI/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTY5Nzg2/ODEtMTU0OTgxMTIz/OC02NjMxLmpwZWc.jpeg")
+                }}>Remove Profile picture</button>
               </div>
               <button
                 className="btn btn-outline-primary w-100 mb-3"
@@ -182,7 +183,7 @@ function Profile(props) {
                   props.closeModal();
                 }}
               >
-              CANCEL
+                CANCEL
               </button>
               <button
                 type="submit"
@@ -201,7 +202,7 @@ function Profile(props) {
         </div>
       </div>
     </div>
-    
+
   );
 }
 

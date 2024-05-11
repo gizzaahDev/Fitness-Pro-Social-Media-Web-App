@@ -6,7 +6,7 @@ import {
   updateNotificationsById,
 } from "../../app/actions/notification.action";
 import { CiSquareRemove } from "react-icons/ci";
-import { AiOutlineNotification } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 
 function NotificationDropdown() {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function NotificationDropdown() {
               return (
                 <li key={notification.id}>
                   <a className="dropdown-item" href="#">
-                    <AiOutlineNotification className="me-2" />
+                    <AiFillHeart style={{color:"pink"}} className="me-2" />
                     <span className="me-2">{notification.message}</span>
                     <CiSquareRemove
                       size={20}

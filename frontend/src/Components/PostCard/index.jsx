@@ -18,9 +18,9 @@ import storage from "../../util/firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import UserImage from "../../assets/user.jpeg";
 import {
-  AiOutlineLike,
-  AiFillLike,
-  AiOutlineComment,
+  AiOutlineHeart,
+  AiFillHeart,
+  AiOutlineMessage,
   AiFillDelete,
   AiFillEdit,
 } from "react-icons/ai";
@@ -332,27 +332,29 @@ function PostCard({ post, fetchType }) {
         <div className="row text-center container mt-3 mb-3">
           <div className="col-4">
             {isLiked ? (
-              <AiFillLike
+              <AiFillHeart style={{ color: "red" }}
                 className="react-icons me-2"
                 size={25}
                 onClick={handleLikePost}
               />
             ) : (
-              <AiOutlineLike
+              <AiOutlineHeart style={{ color: "red" }}
                 className="react-icons me-2"
                 size={25}
                 onClick={handleLikePost}
               />
             )}
 
-            <span>{post.likedby ? post.likedby.length : 0}</span>
+            <span style={{color:"blue"}}>{post.likedby ? post.likedby.length : 0}</span>
           </div>
           <div className="col-4">
-            <AiOutlineComment className="react-icons me-2" size={25} />{" "}
-            <span>{post.comments ? post.comments.length : 0}</span>
+            <AiOutlineMessage style={{ color: "blue" }} className="react-icons me-2" size={25} />{" "}
+            <span style={{color:"blue"}}>{post.comments ? post.comments.length : 0}</span>
           </div>
           <div className="col-4">
             <TbShare3
+
+              style={{ color: "blue" }}
               className="react-icons"
               size={25}
               onClick={() => {
@@ -374,6 +376,7 @@ function PostCard({ post, fetchType }) {
           </div>
           <div className="col-1">
             <MdSend
+            style={{color:"blue"}}
               className="react-icons"
               size={25}
               onClick={() => {
@@ -382,10 +385,12 @@ function PostCard({ post, fetchType }) {
             />
           </div>
 
+          <div style={{marginLeft:"1px"}}>
           {post.comments &&
             post.comments.map((comment) => {
               return (
                 <Comment
+                
                   key={comment.id}
                   comment={comment}
                   postId={post.id}
@@ -394,6 +399,7 @@ function PostCard({ post, fetchType }) {
                 />
               );
             })}
+          </div>
         </div>
       </div>
 

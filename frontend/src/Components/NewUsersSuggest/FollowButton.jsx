@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { followUserById, getAllUsers } from "../../app/actions/user.actions";
 import { saveNotification } from "../../app/actions/notification.action";
+import { PersonAdd,PersonFillAdd } from "react-bootstrap-icons";
 
 function FollowButton({ userDetails, fetchType }) {
   const dispatch = useDispatch();
@@ -60,14 +61,14 @@ function FollowButton({ userDetails, fetchType }) {
           className="btn-follow btn-sm"
           onClick={handleOnFollow}
         >
-          Unfollow
+          <PersonAdd/>
         </button>
       ) : (
         <button
           className="btn-follow btn-sm"
           onClick={handleOnFollow}
         >
-          Follow
+          <PersonFillAdd/>
         </button>
       )}
     </>
