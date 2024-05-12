@@ -61,13 +61,16 @@ function FollowButton({ userDetails, fetchType }) {
           className="btn-follow btn-sm"
           onClick={handleOnFollow}
         >
+          Follow
           <PersonAdd/>
         </button>
       ) : (
         <button
+        style={{color:"blue",backgroundColor:"lightblue"}}
           className="btn-follow btn-sm"
           onClick={handleOnFollow}
         >
+          Unfollow
           <PersonFillAdd/>
         </button>
       )}
